@@ -67,7 +67,7 @@ async function run() {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(passwordString, salt);
 
-        const userWithHashedPassword = { ...user, password: hashedPassword, isActive: false, isAdmin: false, };
+        const userWithHashedPassword = { ...user, password: hashedPassword, isActive: false, isAdmin: false, Balance: 0 };
         const result = await usersCollection.insertOne(userWithHashedPassword);
 
         res.send(result);
@@ -78,7 +78,7 @@ async function run() {
     });
 
 
-    
+
 
 
 
